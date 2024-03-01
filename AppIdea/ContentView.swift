@@ -10,57 +10,73 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query var ideas: [AppIdea]
+
+    @State private var showAddSheet = false
+
+    @State private var newName: String = ""
+    @State private var newDescription:String = ""
+
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                ForEach(ideas) { idea in
+                    NavigationLink(value:idea) {
+                        VStack{
+                            Text(idea.name)
+                            Text(idea.detailedDescription)
+                                .textScale(.secondary)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                .onDelete{ indexSet in
+                    guard let index = indexSet.first else { return }
+
+                    modelContext.delete(ideas[index])
                 }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+            }
+            .navigationTitle("My ideas")
+            .navigationDestination(for: AppIdea.self, destination: { idea in
+                EditAppIdeaScreen(appIdea:idea)
+            })
+            .toolbar{
+                Button("Add",systemImage: "plus") {
+                    showAddSheet.toggle()
+                }
+            }
+            .sheet(isPresented: $showAddSheet, content: {
+                NavigationStack{
+                    Form{
+                        TextField("Name", text: $newName)
+                        TextField("Description", text: $newDescription)
+                    }
+                    .navigationTitle("New Idea")
+                    .toolbar{
+                        Button("Dissmiss") {
+                            showAddSheet.toggle()
+                        }
+                        Button("Save", systemImage: "disksquare.and.pencil"){
+                            let idea = AppIdea(name: newName, detailedDescription: newDescription)
+                            modelContext.insert(idea)
+                            showAddSheet.toggle()
+                            newName = ""
+                            newDescription = ""
+                        }
+                        .disabled(newName.isEmpty && newDescription.isEmpty)
+
                     }
                 }
-            }
-        } detail: {
-            Text("Select an item")
+                .presentationDetents([.medium])
+            })
+
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: AppIdea.self, inMemory: true)
 }

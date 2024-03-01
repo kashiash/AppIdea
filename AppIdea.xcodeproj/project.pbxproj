@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		76E7F8A42B4DE688006A364C /* AppIdeaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8A32B4DE688006A364C /* AppIdeaApp.swift */; };
 		76E7F8A62B4DE688006A364C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8A52B4DE688006A364C /* ContentView.swift */; };
-		76E7F8A82B4DE688006A364C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8A72B4DE688006A364C /* Item.swift */; };
 		76E7F8AA2B4DE68A006A364C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E7F8A92B4DE68A006A364C /* Assets.xcassets */; };
 		76E7F8AE2B4DE68A006A364C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E7F8AD2B4DE68A006A364C /* Preview Assets.xcassets */; };
+		76E7F8B52B4DE71C006A364C /* AppIdea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8B42B4DE71C006A364C /* AppIdea.swift */; };
+		76E7F8B72B4DE80E006A364C /* IdeaFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8B62B4DE80E006A364C /* IdeaFeature.swift */; };
+		76E7F8B92B4DF17C006A364C /* EditAppIdeaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E7F8B82B4DF17C006A364C /* EditAppIdeaScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		76E7F8A02B4DE688006A364C /* AppIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E7F8A32B4DE688006A364C /* AppIdeaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdeaApp.swift; sourceTree = "<group>"; };
 		76E7F8A52B4DE688006A364C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		76E7F8A72B4DE688006A364C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		76E7F8A92B4DE68A006A364C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76E7F8AB2B4DE68A006A364C /* AppIdea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIdea.entitlements; sourceTree = "<group>"; };
 		76E7F8AD2B4DE68A006A364C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		76E7F8B42B4DE71C006A364C /* AppIdea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdea.swift; sourceTree = "<group>"; };
+		76E7F8B62B4DE80E006A364C /* IdeaFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaFeature.swift; sourceTree = "<group>"; };
+		76E7F8B82B4DF17C006A364C /* EditAppIdeaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppIdeaScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				76E7F8A32B4DE688006A364C /* AppIdeaApp.swift */,
 				76E7F8A52B4DE688006A364C /* ContentView.swift */,
-				76E7F8A72B4DE688006A364C /* Item.swift */,
 				76E7F8A92B4DE68A006A364C /* Assets.xcassets */,
 				76E7F8AB2B4DE68A006A364C /* AppIdea.entitlements */,
 				76E7F8AC2B4DE68A006A364C /* Preview Content */,
+				76E7F8B42B4DE71C006A364C /* AppIdea.swift */,
+				76E7F8B62B4DE80E006A364C /* IdeaFeature.swift */,
+				76E7F8B82B4DF17C006A364C /* EditAppIdeaScreen.swift */,
 			);
 			path = AppIdea;
 			sourceTree = "<group>";
@@ -142,9 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E7F8B92B4DF17C006A364C /* EditAppIdeaScreen.swift in Sources */,
 				76E7F8A62B4DE688006A364C /* ContentView.swift in Sources */,
-				76E7F8A82B4DE688006A364C /* Item.swift in Sources */,
 				76E7F8A42B4DE688006A364C /* AppIdeaApp.swift in Sources */,
+				76E7F8B52B4DE71C006A364C /* AppIdea.swift in Sources */,
+				76E7F8B72B4DE80E006A364C /* IdeaFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
